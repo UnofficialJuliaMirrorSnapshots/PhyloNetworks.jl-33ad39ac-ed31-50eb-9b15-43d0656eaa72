@@ -20,7 +20,6 @@ module PhyloNetworks
     using Distributions #for RateVariationAcrossSites
     using GLM # for the lm function
     using NLopt # for branch lengths optimization
-    using SpecialFunctions: lgamma, gamma
     using StaticArrays
     using StatsBase # sample, coef etc.
     using StatsFuns # logsumexp, logaddexp, various cdf
@@ -147,9 +146,8 @@ module PhyloNetworks
         readfastatodna,
         stationary,
         empiricalDNAfrequencies,
-        ## TICR test
-        ticr,
-        ticr!
+        # neighbor joining
+        nj
 
     include("types.jl")
     include("auxiliary.jl")
@@ -174,7 +172,7 @@ module PhyloNetworks
     include("substitutionModels.jl")
     include("biconnectedComponents.jl")
     include("traitsLikDiscrete.jl")
-    include("ticr.jl")
     include("deprecated.jl")
+    include("nj.jl")
 
 end #module
